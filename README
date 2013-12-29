@@ -1,6 +1,10 @@
 Installing Protractor with selenium webdriver
 =============================================
 
+OS: Ubuntu 12.04 LTS
+
+
+
 webdev@dev01~# sudo npm install -g protractor
 
 webdev@dev01~# sudo apt-get install -q -y xvfb
