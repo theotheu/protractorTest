@@ -1,9 +1,11 @@
 Installing Protractor with selenium webdriver
 =============================================
 
-OS: Ubuntu 12.04 LTS
+OS: Ubuntu 14.04 LTS
 
 
+
+Installing Protractor with selenium webdriver
 
 webdev@dev01~# sudo npm install -g protractor
 
@@ -96,6 +98,7 @@ webdev@dev01~# sudo update-rc.d xvfb defaults
 
 webdev@dev01~# sudo apt-get install -q -y x11-xkb-utils xfonts-100dpi xfonts-75dpi xfonts-scalable xserver-xorg-core dbus-x11 libfontconfig1-dev chromium-browser firefox imagemagick git
 
+# Install phantomjs headless web browser
 webdev@dev01~# sudo npm install -g phantomjs
 
 webdev@dev01~# sudo npm install -g chromedriver
@@ -103,10 +106,12 @@ webdev@dev01~# sudo npm install -g chromedriver
 webdev@dev01~# Java should be installed, see procedure else in this document 
 webdev@dev01~# sudo apt-get install -q -y default-jdk
 
+
+Install Selenium
 webdev@dev01~# sudo /usr/sbin/useradd -m -s /bin/bash -d /home/selenium selenium
 webdev@dev01~# sudo mkdir /usr/local/share/selenium
-webdev@dev01~# wget http://selenium.googlecode.com/files/selenium-server-standalone-2.37.0.jar
-webdev@dev01~# sudo mv selenium-server-standalone-2.37.0.jar /usr/local/share/selenium
+webdev@dev01~# wget http://selenium.googlecode.com/files/selenium-server-standalone-2.39.0.jar
+webdev@dev01~# sudo mv selenium-server-standalone-2.39.0.jar /usr/local/share/selenium
 webdev@dev01~# sudo chown -R selenium:selenium /usr/local/share/selenium
 webdev@dev01~# sudo mkdir /var/log/selenium
 webdev@dev01~# sudo chown selenium:selenium /var/log/selenium
@@ -132,7 +137,7 @@ DESC="Selenium standalone server"
 USER=selenium
 JAVA=/usr/bin/java
 PID_FILE=/var/run/selenium.pid
-JAR_FILE=/usr/local/share/selenium/selenium-server-standalone-2.37.0.jar
+JAR_FILE=/usr/local/share/selenium/selenium-server-standalone-2.39.0.jar
 LOG_FILE=/var/log/selenium/selenium.log
  
 DAEMON_OPTS="-Xmx500m -Xss1024k -jar $JAR_FILE -log $LOG_FILE"
@@ -188,7 +193,11 @@ webdev@dev01~# sudo webdriver-manager update
 webdev@dev01~# sudo service xvfb start
 webdev@dev01~# sudo service selenium start
 
+Open a new console and start
+webdev@dev01~# webdriver-manager start 
+
 Use the repository on https://github.com/theotheu/protractorTest.git
+In the previous console, run
 
 webdev@dev01~# git clone https://github.com/theotheu/protractorTest.git testProtractor
 webdev@dev01~# cd testProtractor
